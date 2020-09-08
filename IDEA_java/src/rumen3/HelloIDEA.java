@@ -1,7 +1,18 @@
-package rumen3
-        
+package rumen3;
+
+/*module和project
+*
+*
+*
+*
+*
+*
+* */
 public class HelloIDEA {
     public static void main(String[] args) {
-        system.out.println("helloIDEA");
+        System.out.println("helloworld");
+        int a = Math.abs(3);
     }
+
+
 }

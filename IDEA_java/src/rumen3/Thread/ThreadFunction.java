@@ -13,9 +13,23 @@ package rumen3.Thread;
 * sleep(long millitime):让当前线程"睡眠"指定的millitime,在指定的millitime毫秒时间内,当前线程是阻塞状态
 * isAlive():判断当前线程是否存活
 *
-* */
+* 线程的调度:同优先级线程组先进先出队列，对高优先级，使用优先调度的抢占式策略
+* 线程的优先级等级：
+*   MAX_PRIORITY:10
+*   MIN_PRIORITY:1
+*   NORM_PRIORITY:5
+*获取和设置当前线程的优先级:
+*   getPriority():获取
+*   setPriority():设置
+*
+*   说明:高优先级的线程要抢占低优先级线程的cpu的执行权。但是从概率上来讲并不是高优先
+*   级的比低优先级的
+*
+*
+*/
 public class ThreadFunction {
     public static void main(String[] args) {
+
         Thread.currentThread().setName("主线程");
         System.out.println(Thread.currentThread().getName());
         myThread h1 = new myThread("mt-1");
@@ -24,6 +38,7 @@ public class ThreadFunction {
         } catch (InterruptedException e) {
             System.out.println(e.getMessage());
         }
+        h1.setPriority(Thread.MAX_PRIORITY);
         h1.start();
         System.out.println(h1.isAlive());
     }
